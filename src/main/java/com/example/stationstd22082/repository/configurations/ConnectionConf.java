@@ -1,4 +1,4 @@
-package com.example.stationstd22082.repository;
+package com.example.stationstd22082.repository.configurations;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

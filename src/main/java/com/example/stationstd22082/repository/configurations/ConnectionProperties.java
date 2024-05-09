@@ -1,4 +1,4 @@
-package com.example.stationstd22082.repository;
+package com.example.stationstd22082.repository.configurations;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
