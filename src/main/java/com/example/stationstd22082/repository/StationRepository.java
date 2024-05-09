@@ -66,7 +66,12 @@ public class StationRepository {
         preparedStatement.setString(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
-            return new Station();
+            return new Station(
+                    resultSet.getString("id"),
+                    resultSet.getString("location"),
+                    resultSet.getTimestamp("create_at").toInstant(),
+                    resultSet.getTimestamp("update_at").toInstant()
+            );
         }
         return null;
     }

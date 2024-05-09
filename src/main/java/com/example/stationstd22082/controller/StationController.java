@@ -28,8 +28,8 @@ public class StationController {
     }
 
     @DeleteMapping("/station/{id}")
-    public void deleteStation(@PathVariable Station station) {
-        stationService.deleteStation(station);
+    public void deleteStation(@PathVariable String id) {
+        stationService.deleteStation(id);
     }
 
 

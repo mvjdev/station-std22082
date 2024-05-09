@@ -45,13 +45,13 @@ public class StationService {
     }
     }
 
-    public void deleteStation(Station station) {
+    public Station deleteStation(String id) {
         try {
-            stationRepository.deleteStation(station);
+            stationRepository.deleteStation(stationRepository.getStationById(id));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return null;
     }
-
 
 }
