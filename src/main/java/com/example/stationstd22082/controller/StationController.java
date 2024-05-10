@@ -32,7 +32,6 @@ public class StationController {
         stationService.deleteStation(id);
     }
 
-
     @PostMapping("/station")
     public void createStation(@RequestBody Station station) {
         stationService.createStation(station);
