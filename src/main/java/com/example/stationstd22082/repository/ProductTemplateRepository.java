@@ -23,7 +23,8 @@ public class ProductTemplateRepository {
 
                     resultSet.getString("id"),
                     resultSet.getString("name"),
-                    resultSet.getBigDecimal("price")
+                    resultSet.getBigDecimal("price"),
+                    resultSet.getDouble("stock_quantity")
                     )
             );
         }
@@ -39,18 +40,20 @@ public class ProductTemplateRepository {
             return new ProductTemplate(
                     resultSet.getString("id"),
                     resultSet.getString("name"),
-                    resultSet.getBigDecimal("price")
+                    resultSet.getBigDecimal("price"),
+                    resultSet.getDouble("stock_quantity")
             );
         }
         return null;
     }
 
     public ProductTemplate createProductTemplate(ProductTemplate productTemplate) throws SQLException {
-        String sql = "INSERT INTO product_template(id,name, price) VALUES( ?, ?, ?)";
+        String sql = "INSERT INTO product_template(id,name, price,stock_quantity) VALUES( ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, productTemplate.getId());
         preparedStatement.setString(2, productTemplate.getName());
         preparedStatement.setBigDecimal(3, productTemplate.getPrice());
+        preparedStatement.setDouble(4, productTemplate.getStockQuantity());
         preparedStatement.execute();
         return productTemplate;
     }
@@ -61,6 +64,7 @@ public class ProductTemplateRepository {
         preparedStatement.setString(1, productTemplate.getName());
         preparedStatement.setBigDecimal(2, productTemplate.getPrice());
         preparedStatement.setString(3, productTemplate.getId());
+        preparedStatement.setDouble(4, productTemplate.getStockQuantity());
         preparedStatement.execute();
         return productTemplate;
     }
